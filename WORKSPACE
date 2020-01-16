@@ -42,4 +42,8 @@ http_archive(
         "https://mirror.bazel.build/github.com/bazelbuild/rules_cc/archive/262ebec3c2296296526740db4aefce68c80de7fa.zip",
         "https://github.com/bazelbuild/rules_cc/archive/262ebec3c2296296526740db4aefce68c80de7fa.zip",
     ],
+
 )
+
+# load az_artifactory from here
+# invoke az_artifactory from here
