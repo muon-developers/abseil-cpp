@@ -16,6 +16,7 @@
 
 workspace(name = "com_google_absl")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 # GoogleTest/GoogleMock framework. Used by most unit-tests.
 http_archive(
@@ -45,5 +46,20 @@ http_archive(
 
 )
 
-# load az_artifactory from here
-# invoke az_artifactory from here
+# artifactory rules for Azure
+git_repository(
+    name = "artifactory_tools",
+    branch = "master",
+    remote = "git@github.com:muon-developers/artifactory-tools.git",
+)
+
+load("@artifactory_tools//azure:az.bzl", "az_artifacts_repo")
+
+az_artifacts_repo(
+    name = "test",	
+    org = "https://dev.azure.com/tcontemsft",	
+    project = "bazel",	
+    feed = "foo",	
+    package_name = "test-package",	
+    version = "1.0.0"
+)
