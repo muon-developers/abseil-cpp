@@ -16,7 +16,7 @@
 
 workspace(name = "com_google_absl")
 
-load("//azure:az.bzl", "az_artifacts_deps")
+load("//azure:deps.bzl", "az_artifacts_deps")
 
 az_artifacts_deps(
     name = "rules_cc",	

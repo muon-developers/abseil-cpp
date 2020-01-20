@@ -4,7 +4,7 @@ AZ_ARTIFACTS_FEED = "libs"
 AZ_SCOPE_PROJECT = "project"
 
 def _az_artifacts_deps_impl(ctx):
-   print("Inside implementation block")
+   print("Entering _az_artifacts_deps_impl...")
 
    temp_dir = ctx.attr.archive[:-4] + "/"
 
