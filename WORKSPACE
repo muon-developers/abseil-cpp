@@ -55,32 +55,36 @@ workspace(name = "com_google_absl")
 
 # load("@artifactory_tools//azure:az.bzl", "az_artifacts_repo")
 
-# az_artifacts_repo(
-#     name = "test",	
-#     org = "https://dev.azure.com/tcontemsft",	
-#     project = "bazel",	
-#     feed = "foo",	
-#     package_name = "test-package",	
-#     version = "1.0.0"
-# )
-
 load("//azure:az.bzl", "az_artifacts_repo")
 
 az_artifacts_repo(
-    name = "rules_cc", 
-    url = "https://github.com/bazelbuild/rules_cc/archive/262ebec3c2296296526740db4aefce68c80de7fa.zip",
-    archive = "262ebec3c2296296526740db4aefce68c80de7fa.zip"
+     name = "rules_cc",	
+    # org = "https://dev.azure.com/minevrapoc",	
+    # project = "minerva-poc-github",	
+    # feed = "libs",	
+    package = "rules_cc",	
+    version = "1.0.1",
+    archive = "rules_cc-262ebec3c2296296526740db4aefce68c80de7fa.zip"
 )
 
 az_artifacts_repo(
-    name = "com_google_googletest", 
-    url = "https://github.com/google/googletest/archive/b6cd405286ed8635ece71c72f118e659f4ade3fb.zip",
-    archive = "b6cd405286ed8635ece71c72f118e659f4ade3fb.zip"
+     name = "com_google_googletest",	
+    # org = "https://dev.azure.com/minevrapoc",	
+    # project = "minerva-poc-github",	
+    # feed = "libs",	
+    package = "googletest",	
+    version = "1.0.0",
+    archive = "googletest-b6cd405286ed8635ece71c72f118e659f4ade3fb.zip"
 )
 
 az_artifacts_repo(
-    name = "com_github_google_benchmark", 
-    url = "https://github.com/google/benchmark/archive/16703ff83c1ae6d53e5155df3bb3ab0bc96083be.zip",
-    archive = "16703ff83c1ae6d53e5155df3bb3ab0bc96083be.zip"
+     name = "com_github_google_benchmark",	
+    # org = "https://dev.azure.com/minevrapoc",	
+    # project = "minerva-poc-github",	
+    # feed = "libs",	
+    package = "google_benchmark",	
+    version = "1.0.0",
+    archive = "benchmark-16703ff83c1ae6d53e5155df3bb3ab0bc96083be.zip"
 )
+
 
