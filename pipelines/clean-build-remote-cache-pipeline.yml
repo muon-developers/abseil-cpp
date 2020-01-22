@@ -12,7 +12,6 @@ stages:
       name: 'VMSSPool'
 
     steps: 
-
     - script: |
         bazel version
       displayName: 'Show Bazel Version'
