@@ -25,11 +25,15 @@ stages:
 
     - script: |
         bazel version
-      displayName: 'show bazel version'
+      displayName: 'Show Bazel Version'
+
+    - script: |
+        bazel clean --expunge
+      displayName: 'Bazel Clean'
 
     - script: |
         bazel build ...
-      displayName: 'bazel build' 
+      displayName: 'Bazel Build' 
 
     # Record build information in files to be packaged
     - script: '
@@ -37,7 +41,7 @@ stages:
         from Build $(Build.DefinitionName), triggered by $(Build.Reason)
         from repo $(Build.Repository.Name) 
         >bazel-out/k8-fastbuild/bin/absl/version.txt'
-      displayName: 'record abseil build version'
+      displayName: 'Record Abseil Build Version'
 
     # Compress files into .7z, .tar.gz, or .zip
     - task: ArchiveFiles@2
