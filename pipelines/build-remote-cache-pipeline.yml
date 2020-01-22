@@ -1,0 +1,26 @@
+# won't trigger on branch/PR/merge 
+trigger: none
+
+pr: none
+
+stages:
+- stage: Bazel_Build
+  displayName: Build
+  jobs:
+  - job: Build
+    pool:
+      name: 'VMSSPool'
+
+    steps: 
+
+    - script: |
+        bazel version
+      displayName: 'Show Bazel Version'
+
+    - script: |
+        bazel clean --expunge
+      displayName: 'Bazel Clean'      
+
+    - script: |
+        bazel build --remote_cache=http://remotecache.eastus.cloudapp.azure.com:9090 ...
+      displayName: 'Bazel Build'    
