@@ -15,12 +15,12 @@ stages:
 
     - script: |
         bazel version
-      displayName: 'show bazel version'
+      displayName: 'Show Bazel Version'
 
     - script: |
-        bazel build --remote_cache=http://remotecache.eastus.cloudapp.azure.com:9090 ...
-      displayName: 'bazel build' 
+        bazel clean --expunge
+      displayName: 'Bazel Clean'
 
     - script: |
         bazel test --remote_cache=http://remotecache.eastus.cloudapp.azure.com:9090 --test_tag_filters=-benchmark ...
-      displayName: 'run all non-benchmark tests'       
+      displayName: 'Run All Non-benchmark Tests'       
