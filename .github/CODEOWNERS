@@ -2,7 +2,8 @@
 
 # members of dev-team  will be requested for
 # review when someone opens a pull request.
-*       @muon-developers/dev-team 
+absl/ @muon-developers/dev-team
+README.md @muon-developers/dev-team
 
 # members of ci-team  will be requested for
 # review when someone opens a pull request
