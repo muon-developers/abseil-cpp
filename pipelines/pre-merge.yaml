@@ -35,6 +35,7 @@ stages:
         bazel build ...
       displayName: 'Bazel Build' 
 
+
     # Record build information in files to be packaged
     - script: '
         echo Binary Abseil built from run number $(Build.BuildNumber)
@@ -42,6 +43,7 @@ stages:
         from repo $(Build.Repository.Name) 
         >bazel-out/k8-fastbuild/bin/absl/version.txt'
       displayName: 'Record Abseil Build Version'
+
 
     # Compress files into .7z, .tar.gz, or .zip
     - task: ArchiveFiles@2
