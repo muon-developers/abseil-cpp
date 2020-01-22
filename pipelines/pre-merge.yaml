@@ -58,7 +58,7 @@ stages:
 
     # Now upload to Azure Artifacts under the binaries Stream
     - task: UniversalPackages@0
-      displayName:  Publish Artifacts
+      displayName: 'Publish Artifacts'
       inputs:
         command: publish
         publishDirectory: '$(Build.ArtifactStagingDirectory)'
