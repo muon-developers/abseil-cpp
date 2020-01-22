@@ -15,8 +15,15 @@
 #
 
 workspace(name = "com_google_absl")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
-load("//azure:deps.bzl", "az_artifacts_deps")
+git_repository(
+    name = "artifactory_tools",
+    branch = "master",
+    remote = "git@github.com:muon-developers/artifactory-tools.git",
+)
+
+load("@artifactory_tools//azure:deps.bzl", "az_artifacts_deps")
 
 az_artifacts_deps(
     name = "rules_cc",	
