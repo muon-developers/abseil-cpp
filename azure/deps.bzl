@@ -8,6 +8,7 @@ def _extract_then_delete_archive(ctx):
    ctx.delete(ctx.attr.archive) # deletes the already extracted zip
 
 def _az_artifacts_deps_impl(ctx):
+   
    print("Entering _az_artifacts_deps_impl...")
 
    temp_dir = ctx.attr.archive[:-4] + "/"
@@ -28,8 +29,10 @@ def _az_artifacts_deps_impl(ctx):
    
    _extract_then_delete_archive(ctx)
 
-   ctx.execute(["rsync", "-a", "--exclude=WORKSPACE", temp_dir, "."], quiet=False) # try
-   #ctx.execute(["cp", "-n", "-R", temp_dir, "."], quiet=False) # copy the directory content to one level up
+   ctx.execute(["rsync", "-a",
+   "--exclude=WORKSPACE",
+   temp_dir, "."], quiet=False) # rsyncing directories with WORKSPACE
+  
    ctx.delete(temp_dir) # deletes the temp directory
 
 az_artifacts_deps = repository_rule(
