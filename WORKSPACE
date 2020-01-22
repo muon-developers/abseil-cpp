@@ -20,7 +20,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 git_repository(
     name = "artifactory_tools",
     branch = "master",
-    remote = "git@github.com:muon-developers/artifactory-tools.git",
+    remote = "https://github.com/muon-developers/artifactory-tools.git",
 )
 
 load("@artifactory_tools//azure:deps.bzl", "az_artifacts_deps")
