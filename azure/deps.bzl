@@ -3,12 +3,16 @@ AZ_DEVOPS_PROJECT = "minerva-poc-github"
 AZ_ARTIFACTS_FEED = "libs"
 AZ_SCOPE_PROJECT = "project"
 
+def _extract_then_delete_archive(ctx):
+   ctx.extract(ctx.attr.archive) # extracts the zip
+   ctx.delete(ctx.attr.archive) # deletes the already extracted zip
+
 def _az_artifacts_deps_impl(ctx):
    print("Entering _az_artifacts_deps_impl...")
 
    temp_dir = ctx.attr.archive[:-4] + "/"
 
-   ctx.execute(["az",
+   az_art_download_cmd = ["az",
    "artifacts",
    "universal",
    "download",
@@ -18,9 +22,12 @@ def _az_artifacts_deps_impl(ctx):
    "--feed", AZ_ARTIFACTS_FEED,
    "--name", ctx.attr.name,
    "--version", ctx.attr.version,
-   "--path", "."])   
-   ctx.extract(ctx.attr.archive) # extracts the zip
-   ctx.delete(ctx.attr.archive) # deletes the already extracted zip
+   "--path", "."]
+
+   ctx.execute(az_art_download_cmd)   
+   
+   _extract_then_delete_archive(ctx)
+
    ctx.execute(["rsync", "-a", "--exclude=WORKSPACE", temp_dir, "."], quiet=False) # try
    #ctx.execute(["cp", "-n", "-R", temp_dir, "."], quiet=False) # copy the directory content to one level up
    ctx.delete(temp_dir) # deletes the temp directory
