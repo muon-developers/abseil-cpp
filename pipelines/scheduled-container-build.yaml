@@ -36,7 +36,7 @@ steps:
     containerRegistry: minervapocRegistryServiceConnection1
 
 - task: Docker@2
-  displayName: buildAndPush
+  displayName: Build And Push
   inputs:
     containerRegistry: minervapocRegistryServiceConnection1
     repository: 'abseil'
