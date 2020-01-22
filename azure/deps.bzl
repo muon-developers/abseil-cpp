@@ -21,7 +21,8 @@ def _az_artifacts_deps_impl(ctx):
    "--path", "."])   
    ctx.extract(ctx.attr.archive) # extracts the zip
    ctx.delete(ctx.attr.archive) # deletes the already extracted zip
-   ctx.execute(["cp", "-n", "-R", temp_dir, "."], quiet=False) # copy the directory content to one level up
+   ctx.execute(["rsync", "-a", "--exclude=WORKSPACE", temp_dir, "."], quiet=False) # try
+   #ctx.execute(["cp", "-n", "-R", temp_dir, "."], quiet=False) # copy the directory content to one level up
    ctx.delete(temp_dir) # deletes the temp directory
 
 az_artifacts_deps = repository_rule(
