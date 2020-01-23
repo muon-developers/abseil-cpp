@@ -21,9 +21,9 @@ stages:
     steps:  
     - script: |
         bazel version
-      displayName: 'show bazel version'
+      displayName: 'Show Bazel Version'
     - script: |
         bazel test --test_tag_filters=-benchmark ... 
-      displayName: 'Run Alll Non-Benchmark Tests'
+      displayName: 'Run All Non-Benchmark Tests'
 
 
