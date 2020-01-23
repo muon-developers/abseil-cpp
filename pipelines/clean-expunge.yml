@@ -1,0 +1,17 @@
+# won't trigger on branch/PR/merge 
+trigger: none
+
+pr: none
+
+stages:
+- stage: Bazel_Clean
+  displayName: Clean
+  jobs:
+  - job: Clean
+    pool:
+      name: 'VMSSPool'
+
+    steps: 
+    - script: |
+        bazel clean --expunge
+      displayName: 'Bazel Clean'   
