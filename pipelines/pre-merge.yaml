@@ -32,7 +32,7 @@ stages:
     #   displayName: 'Bazel Clean'
 
     - script: |
-        bazel build ...
+        exit 1
       displayName: 'Bazel Build' 
 
 
