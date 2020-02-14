@@ -179,4 +179,13 @@ TEST(RotateTest, Rotate) {
   EXPECT_THAT(l, testing::ElementsAreArray({3, 4, 0, 1, 2}));
 }
 
+//new tests add - start
+
+TEST_F(LinearSearchTest, linear_search_1) {
+  EXPECT_TRUE(absl::linear_search_1(container_.begin(), container_.end(), 3));
+  EXPECT_FALSE(absl::linear_search_1(container_.begin(), container_.end(), 4));
+}
+
+//new tests add - end
+
 }  // namespace
