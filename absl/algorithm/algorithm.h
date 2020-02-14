@@ -155,7 +155,7 @@ ForwardIterator rotate(ForwardIterator first, ForwardIterator middle,
 
 //new code add - start
 
-// linear_search_1()
+// linear_search_2()
 //
 // Performs a linear search for `value` using the iterator `first` up to
 // but not including `last`, returning true if [`first`, `last`) contains an
@@ -165,7 +165,7 @@ ForwardIterator rotate(ForwardIterator first, ForwardIterator middle,
 // n = (`last` - `first`) comparisons. A linear search over short containers
 // may be faster than a binary search, even when the container is sorted.
 template <typename InputIterator, typename EqualityComparable>
-bool linear_search_1(InputIterator first, InputIterator last,
+bool linear_search_2(InputIterator first, InputIterator last,
                    const EqualityComparable& value) {
   return std::find(first, last, value) != last;
 }
