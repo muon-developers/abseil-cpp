@@ -186,7 +186,7 @@ TEST_F(LinearSearchTest, linear_search_1) {
   EXPECT_FALSE(absl::linear_search_1(container_.begin(), container_.end(), 4));
 }
 
-TEST_F(LinearSearchTest, linear_searchConst) {\
+TEST_F(LinearSearchTest, linear_searchConst) {
   const std::vector<int> *const const_container = &container_;
   EXPECT_TRUE(
       absl::linear_search_1(const_container->begin(), const_container->end(), 3));
