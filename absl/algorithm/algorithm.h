@@ -155,7 +155,7 @@ ForwardIterator rotate(ForwardIterator first, ForwardIterator middle,
 
 //new code add - start
 
-// linear_search_1()
+// linear_search_2()
 //
 // Performs a linear search for `value` using the iterator `first` up to
 // but not including `last`, returning true if [`first`, `last`) contains an
