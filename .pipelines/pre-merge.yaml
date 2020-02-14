@@ -27,13 +27,13 @@ stages:
         bazel version
       displayName: 'Show Bazel Version'
 
-    # - script: |
-    #     bazel clean --expunge
-    #   displayName: 'Bazel Clean'
-
     - script: |
         bazel build ...
       displayName: 'Bazel Build' 
+
+    - script: |
+        bazel test --test_tag_filters=-benchmark ... 
+      displayName: 'Run All Non-Benchmark Tests'  
 
 
     # Record build information in files to be packaged
