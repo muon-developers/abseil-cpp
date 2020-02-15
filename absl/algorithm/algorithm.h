@@ -153,25 +153,6 @@ ForwardIterator rotate(ForwardIterator first, ForwardIterator middle,
                    ForwardIterator>());
 }
 
-//new code add - start
-
-// linear_search_2()
-//
-// Performs a linear search for `value` using the iterator `first` up to
-// but not including `last`, returning true if [`first`, `last`) contains an
-// element equal to `value`.
-//
-// A linear search is of O(n) complexity which is guaranteed to make at most
-// n = (`last` - `first`) comparisons. A linear search over short containers
-// may be faster than a binary search, even when the container is sorted.
-template <typename InputIterator, typename EqualityComparable>
-bool linear_search_2(InputIterator first, InputIterator last,
-                   const EqualityComparable& value) {
-  return std::find(first, last, value) != last;
-}
-
-
-//new code add - end
 
 ABSL_NAMESPACE_END
 }  // namespace absl
