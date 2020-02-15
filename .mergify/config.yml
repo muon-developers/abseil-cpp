@@ -1,19 +1,12 @@
-# Simple merge rule 
+# merge rule used by Mergify
+# strict is enabled
 pull_request_rules: 
-  - name: automatic merge when CI passes and 1+ approved reviews
+  - name: automatic merge when CI(pre-merge passes and 1+ approved reviews
     conditions: 
       - "#approved-reviews-by>=1"
       - status-success=pre-merge
       - base=master 
     actions: 
       merge: 
-        method: merge 
-
-# # Alternative merge rule 
-# pull_request_rules: 
-#   - name: automatic merge when GitHub branch protection passes 
-#     conditions:
-#     - base=master
-#     actions:
-#       merge: 
-#         method: merge 
+        method: merge
+        strict: true
